@@ -275,8 +275,7 @@
 <div id="paperModal">
   <article id="paperSheet">
     <button id="closePaper">閉じる ×</button>
-    <div class="stamp">PRIVATE / DEVELOPMENT MEMO / 01</div>
-    <h2>この部屋のコードについて</h2>
+    <div style="clear:both;height:28px" aria-hidden="true"></div>
     <div id="paperText"></div>
   </article>
 </div>
@@ -1153,7 +1152,14 @@ That is enough complaining. I am not going to print the star’s location on thi
 
 P.S. Who printed this entire memo and put it in a drawer? Please do not investigate that particular mystery.`;
 
-$('#paperText').textContent=englishMemo;
+// One sheet in the drawer, repeating the same words as the special room.
+const drawerPrintedPhrase='outside rain toy shop magic dive my dreams';
+const drawerPrintedText=Array.from(
+  {length:32},
+  ()=>drawerPrintedPhrase
+).join('\n');
+
+$('#paperText').textContent=drawerPrintedText;
 
 function wrapText(ctx,text,maxWidth){
   const lines=[];
@@ -1173,23 +1179,22 @@ const paperTexture=canvasTexture((c,s)=>{
   for(let i=0;i<9000;i++){
     c.fillStyle='#6a563408';c.fillRect(random()*s,random()*s,1,1);
   }
-  c.fillStyle='#6a6a5d';c.font='13px monospace';
-  c.fillText('PRIVATE / DEVELOPMENT MEMO',65,65);
-  c.fillStyle='#33352e';c.font='bold 28px sans-serif';
-  c.fillText('この部屋のコードについて',65,120);
-  c.fillRect(65,145,s-130,1);
-  c.font='15px sans-serif';
-  const lines=wrapText(c,englishMemo,s-130);
-  lines.slice(0,41).forEach((l,i)=>c.fillText(l,65,180+i*19));
-  c.font='13px sans-serif';c.fillStyle='#737160';
-  c.fillText('クリックして全文を読む / 01',65,s-40);
+  // No heading or page number: only the same words, over and over.
+  c.fillStyle='#343339';
+  c.font='25px Arial,sans-serif';
+  const lines=wrapText(c,drawerPrintedText,s-124);
+  lines.slice(0,32).forEach((line,i)=>{
+    c.fillText(line,62,70+i*28);
+  });
 },1024);
 const paper=mesh(new THREE.PlaneGeometry(.76,.66),
   material('#ffffff',.95,0,{map:paperTexture}),drawer,0,-.070,.015);
 paper.rotation.x=-Math.PI/2;
-actionable(paper,'印刷された開発メモを読む',()=>{
+actionable(paper,'Read the Paper in the Drawer',()=>{
   if(!drawerOpen)return;
-  paperVisible=true;$('#paperModal').style.display='block';
+  paperVisible=true;
+  $('#paperModal').style.display='block';
+  $('#paperModal').scrollTop=0;
 });
 $('#closePaper').onclick=()=>{
   paperVisible=false;$('#paperModal').style.display='none';
