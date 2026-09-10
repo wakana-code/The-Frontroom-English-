@@ -1,4 +1,4 @@
-# The-Frontroom
+# The-Frontrooms
 [Play here](https://wakana-code.github.io/the-frontroom-English-/)
 
 # An Evening Room — Acrylic Star
