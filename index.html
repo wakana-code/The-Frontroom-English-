@@ -338,6 +338,346 @@
   </section>
 </div>
 
+<script>
+(function installEnglishLocalization(){
+  'use strict';
+
+  document.documentElement.lang='en';
+  document.title='An Evening Room — Acrylic Star';
+
+  const translations={
+    '部屋に光を入れています…':'Letting the light in…',
+    '夕暮れの部屋':'An Evening Room',
+    '折り返す廊下':'The Turning Hallway',
+    'この部屋のどこかにある、アクリルのスターを探す。':
+      'Find the acrylic star hidden somewhere in this room.',
+    'WASD：移動 ／ B＋WASD：ダッシュ ／ ドラッグ：見回す ／ クリック：調べる':
+      'WASD: Move / Hold B: Sprint / Drag: Look / Click: Interact',
+    'WASD：移動 ／ B＋WASD：ダッシュ ／ ドラッグ：見回す ／ ドアをクリック':
+      'WASD: Move / Hold B: Sprint / Drag: Look / Click a door to open it',
+    'WASD：移動 ／ ドラッグ：見回す ／ ドアをクリックして入室':
+      'WASD: Move / Drag: Look / Click a door to enter',
+    'WASD：移動 ／ ドラッグ：見回す ／ クリック：調べる ／ 下：視点移動':
+      'WASD: Move / Drag: Look / Click: Interact / Buttons: Change view',
+    'WASD：移動　／　ドラッグ：見回す　／　クリック：調べる　／　下：視点移動':
+      'WASD: Move / Drag: Look / Click: Interact / Buttons: Change view',
+    'ドラッグ：見回す　／　クリック：調べる　／　下のボタン：移動':
+      'Drag: Look / Click: Interact / Buttons: Change view',
+    'ドラッグ：見回す ／ クリック：調べる ／ 下のボタン：移動':
+      'Drag: Look / Click: Interact / Buttons: Change view',
+    'ドラッグ：ポーチを360度回転 ／ ホイール・ピンチ：拡大 ／ 留め金をクリック':
+      'Drag: Rotate pouch / Scroll or pinch: Zoom / Click the clasp',
+    '部屋':'Room',
+    '机':'Desk',
+    'クローゼット':'Closet',
+    'ベッド':'Bed',
+    'ベッドの下':'Under the Bed',
+    'スイッチ':'Light Switch',
+    '部屋に戻る ↩':'Back to Room ↩',
+    '閉じる ×':'Close ×',
+    'この部屋のコードについて':'About the Code Behind This Room',
+    '星を、見つけた。':'You found the star.',
+    '茶色いポーチの中で、':'Inside a brown pouch,',
+    '小さなアクリルの縁が光を拾っていた。':
+      'the edges of a little acrylic star caught the light.',
+    'そのまま部屋を眺める':'Stay and Look Around',
+    '最初から、もう一度':'Play Again',
+    'おしまい':'The End',
+    '確認したい場所へ':'Jump to a Scene',
+    'ジャンプ先に合わせて進行状況を変更します。':
+      'Jumping adjusts your progress to match the selected scene.',
+    'メニュー表示中も、演出の時間は進みます。':
+      'Animations and story scenes continue while this menu is open.',
+    '特殊な部屋':'The Special Room',
+    '白い部屋。丸いアクリル板は床にある状態。':
+      'The white room, with the circular acrylic piece still on the floor.',
+    'アクリル板を持って、最初の部屋へ':
+      'First Room — Carrying the Acrylic Piece',
+    'ベッドの下でポーチを開き、合体演出を確認できます。':
+      'Open the pouch under the bed to test the fitting animation.',
+    'エンディング':'Ending',
+    '白いフェードからエンドロール、その後の会話へ。':
+      'White fade, rolling credits, then the conversation epilogue.',
+    '閉じる（Esc）':'Close (Esc)',
+    'ただいま。':'Home.',
+    'もう一度遊ぶ':'Play Again',
+    'このまま部屋を眺める':'Stay a Little Longer',
+    '選択に戻る':'Back to Options',
+    '夕暮れの部屋 — おしまい':'An Evening Room — The End',
+    '最後まで遊んでくれて、ありがとう。':
+      'Thank you for staying until the end.',
+    '自動再生 ／ クリック・Enter・Spaceで次へ':
+      'Auto-play / Click, Enter, or Space to continue',
+
+    'ドアを開ける / 閉める':'Open / Close the Door',
+    '部屋のドアを開ける / 閉める':'Open / Close the Room Door',
+    'ドアから少し離れてから閉めよう。':
+      'Step away from the doorway before closing the door.',
+    'ドアが開いた。WASDで外へ出ると、左右に廊下が続いている。':
+      'The door opens. Step outside with WASD; the hallway runs both ways.',
+    'ドアを閉めた。':'You closed the door.',
+    '照明スイッチ：ON / OFF':'Room Light: ON / OFF',
+    'パチッ。部屋の照明をつけた。':'Click. The room light comes on.',
+    '暖かな余韻を残して、照明が消えていく。':
+      'The light fades, leaving a brief, warm afterglow.',
+    '引き出しを開ける / 閉める':'Open / Close the Drawer',
+    '引き出しの中に、印刷された紙が入っている。':
+      'There is a printed document inside the drawer.',
+    '印刷された開発メモを読む':'Read the Printed Development Memo',
+    'クリックして全文を読む / 01':'Click to read the full memo / 01',
+    'スマートフォンをどかす / 戻す':'Move / Replace the Phone',
+    '金曜日 · 夕暮れ':'Friday · Dusk',
+    '通知はありません':'No notifications',
+    'デスクランプをつける / 消す':'Desk Lamp: ON / OFF',
+    'いすを調べる / 引く / 戻す':'Inspect / Pull Out / Replace the Chair',
+    'いすを引く / 戻す':'Pull Out / Replace the Chair',
+    '浮いている椅子を調べる':'Examine the Floating Chair',
+    '椅子は床から離れている。支えるものは、何も見当たらない。':
+      'The chair hangs above the floor. Nothing seems to be holding it up.',
+    'ゴミ箱を少しどかす / 戻す':'Move / Replace the Wastebasket',
+    'クローゼットを開ける / 閉める':'Open / Close the Closet',
+    '服とハンガーは、それぞれクリックして床に置ける。':
+      'Click individual clothes or hangers to place them on the floor.',
+    '留め金を外す':'Undo the Clasp',
+    'ポーチは開いている。中には透明なスターがある。':
+      'The pouch is open. A transparent star rests inside.',
+    '開いたポーチの中には、何も入っていない。':
+      'There is nothing inside the open pouch.',
+    '留め金が外れた。中から、透明なスターが現れる。':
+      'The clasp comes loose. A transparent star appears inside.',
+    '留め金が外れた。ポーチの中は、空っぽだった。':
+      'The clasp comes loose. The pouch is empty.',
+    'ポーチの中のスターを調べる':'Examine the Star in the Pouch',
+    '持っている丸い板の穴と、星の形が重なって見える。':
+      'The star matches the cutout in the circular piece you are carrying.',
+    '透明なスター。これだけを持ち出すのではなく、組み合わせるものがありそうだ。':
+      'A transparent star. Rather than taking it alone, perhaps something belongs around it.',
+    '茶色いポーチを手に取って調べる':'Pick Up and Examine the Brown Pouch',
+    'ベッドの下へ潜ると、手が届きそうだ。':
+      'You should be able to reach it by crawling under the bed.',
+    'ポーチは開いている。中には、透明なスターがある。':
+      'The pouch is open. There is a transparent star inside.',
+    '茶色いポーチ。開いた中身は空っぽだ。':
+      'A brown pouch. Its open interior is empty.',
+    '茶色い革のポーチ。正面の金色の留め金を外せそうだ。':
+      'A brown leather pouch. The gold-colored clasp on the front can be undone.',
+    '二つのアクリルが、ゆっくり重なっていく。':
+      'The two acrylic pieces are slowly coming together.',
+    '探索完了。照明を変えたり、部屋をもう少し眺めたりできる。':
+      'Exploration complete. You can change the lighting or stay and look around.',
+    '廊下ではWASDで移動。ドアから部屋へ入ると、家具の視点ボタンを使える。':
+      'Use WASD in the hallway. The viewpoint buttons become available inside a room.',
+    'この部屋では家具が壁や天井から生えている。WASDで歩いて調べよう。':
+      'The furniture grows out of the walls and ceiling here. Explore on foot with WASD.',
+    '身をかがめて、ベッドの下へ。床の近くに、茶色いものがある。':
+      'You crouch beneath the bed. Something brown lies close to the floor.',
+    '小物をどかしたり、扉を開けたりしてみよう。低いところも忘れずに。':
+      'Try moving small objects and opening things. Remember to look down, too.',
+
+    '異変のない部屋':'An Ordinary Room',
+    '雨の降る部屋':'The Rain Room',
+    '椅子の浮く部屋':'The Floating Chair Room',
+    '黄色い部屋':'The Yellow Room',
+    'ぼくのゆめ':'My Dreams',
+    '左右に廊下が続いている。右へ進むと、左・右と折れる曲がり角がある。':
+      'The hallway runs both ways. To the right, the route turns left, then right.',
+    '廊下の空気が変わった。右へ進み、いつもの二つの角を曲がろう。':
+      'The hallway feels different. Head right and follow the familiar two turns.',
+    '最初の部屋に戻ってきた。見慣れた配置だ。':
+      'You are back in the first room. Everything is where you remember it.',
+    '同じ部屋なのに、家具の場所が少し違う。':
+      'The same room, but the furniture is arranged differently.',
+    '天井の内側から雨が降っている。足元には、薄く水が溜まっている。':
+      'Rain falls inside the room. A shallow layer of water covers the floor.',
+    '部屋の中央で、椅子が静かに浮いている。':
+      'A chair floats silently in the middle of the room.',
+    '壁も床も、淡く鮮やかな黄色に変わっている。':
+      'The walls and floor have turned a pale, vivid yellow.',
+    '真っ白な部屋。乱れた文字と、壁から生えた家具。足元では、同じ言葉が何度も繰り返されている。':
+      'A white room. Crooked writing, furniture jutting from the walls. The same words repeat across the papers underfoot.',
+    '床に散らばった紙を読む':'Read the Scattered Papers',
+    '「そと あめ おもちゃやさん まほう もぐる ぼくのゆめ」――同じ言葉だけが、繰り返し印刷されている。':
+      '“outside rain toy shop magic dive my dreams” — the same words are printed over and over.',
+    '星形の穴があいたアクリル板を持つ':'Pick Up the Acrylic Piece with the Star Cutout',
+    '丸いアクリル板を持った。穴の形は、最初の部屋で見たスターと同じだ。':
+      'You pick up the circular acrylic piece. The cutout matches the star in the first room.',
+    '星形の穴があいた板を持っている。最初の部屋のポーチを調べよう。':
+      'You are carrying the piece with the star cutout. Return to the pouch in the first room.',
+    '丸い板を近づけると、星形の穴に光が集まり始めた。':
+      'As you bring the circular piece closer, light gathers around the star-shaped opening.',
+    '二つのアクリルが重なった。最初の部屋から外へ出よう。':
+      'The two acrylic pieces fit together. Leave through the first room’s door.',
+    'ぴたり、と重なった。部屋に戻って、ドアの向こうへ。':
+      'A perfect fit. Return to the room, then step through the door.',
+    '玄関のドアを開ける':'Open the Front Door',
+    'ドアの向こうには、白い光があった。':
+      'Beyond the door, there was white light.',
+    'そと':'OUTSIDE',
+
+    '丸いアクリル板を持っている。ベッドの下で、最初のポーチを調べよう。':
+      'You are carrying the circular piece. Examine the first pouch under the bed.',
+    '特殊な部屋。床の紙の上にある、丸いアクリル板を調べよう。':
+      'The special room. Examine the circular acrylic piece lying on the papers.',
+    '開発者モード：エンディングを再生中':
+      'Developer mode: Playing the ending',
+    '開発者モード：丸い板を持って帰宅。ベッドの下へ潜り、ポーチを選ぼう。':
+      'Developer mode: Back home with the circular piece. Crawl under the bed and select the pouch.'
+  };
+
+  const entries=Object.entries(translations).sort(
+    (a,b)=>b[0].length-a[0].length
+  );
+
+  function translate(value){
+    const text=String(value);
+    if(!/[\u3040-\u30ff\u3400-\u9fff]/.test(text))return text;
+
+    if(Object.prototype.hasOwnProperty.call(translations,text)){
+      return translations[text];
+    }
+
+    const leading=text.match(/^\s*/)[0];
+    const trailing=text.match(/\s*$/)[0];
+    const trimmed=text.trim();
+    if(Object.prototype.hasOwnProperty.call(translations,trimmed)){
+      return leading+translations[trimmed]+trailing;
+    }
+
+    let match;
+
+    match=text.match(/^「(.+)」をどかす \/ 戻す$/);
+    if(match)return `Move / Replace “${translate(match[1])}”`;
+
+    match=text.match(/^ハンガー (\d+) を床に置く$/);
+    if(match)return `Place Hanger ${match[1]} on the Floor`;
+
+    match=text.match(/^服 (\d+) を床に置く$/);
+    if(match)return `Place Garment ${match[1]} on the Floor`;
+
+    match=text.match(/^(ハンガー|服) (\d+)を床に置いた。$/);
+    if(match){
+      return `You placed ${match[1]==='服'?'garment':'hanger'} ${match[2]} on the floor.`;
+    }
+
+    match=text.match(/^(ハンガー|服) (\d+)は床に置いてある。$/);
+    if(match){
+      return `${match[1]==='服'?'Garment':'Hanger'} ${match[2]} is already on the floor.`;
+    }
+
+    match=text.match(/^開発者モード：特殊な部屋 (\d+) へ移動した。$/);
+    if(match)return `Developer mode: Jumped to special room ${match[1]}.`;
+
+    match=text.match(/^部屋 (\d+)。(.*)$/s);
+    if(match)return `Room ${match[1]}. ${translate(match[2])}`;
+
+    match=text.match(/^夕暮れの部屋 (.+)$/);
+    if(match)return `An Evening Room ${match[1]}`;
+
+    // Supports messages assembled from several translated fragments.
+    // Single-word labels are exact-match only, to avoid altering part
+    // of a longer sentence before that sentence has been translated.
+    let result=text;
+    for(const [source,target] of entries){
+      if(source.length>=8 && result.includes(source)){
+        result=result.split(source).join(target);
+      }
+    }
+    return result;
+  }
+
+  window.acrylicEnglish=translate;
+
+  // Translate texture lettering before it is painted to a canvas.
+  // The special-room graffiti is replaced separately with drawn strokes.
+  const canvasPrototype=CanvasRenderingContext2D.prototype;
+  for(const method of ['fillText','strokeText']){
+    const original=canvasPrototype[method];
+    canvasPrototype[method]=function(text,...args){
+      return original.call(this,translate(text),...args);
+    };
+  }
+
+  // Localize both existing HTML and messages added later.
+  // Only text nodes and accessibility text are changed; event handlers,
+  // element IDs, data attributes, styles, and game state are untouched.
+  function localizeElement(element){
+    for(const name of ['title','aria-label','placeholder']){
+      if(!element.hasAttribute(name))continue;
+      const old=element.getAttribute(name);
+      const next=translate(old);
+      if(next!==old)element.setAttribute(name,next);
+    }
+  }
+
+  function localizeTree(root){
+    if(root.nodeType===Node.TEXT_NODE){
+      const parent=root.parentElement;
+      if(parent && parent.closest('script,style,textarea,code,pre'))return;
+      const next=translate(root.nodeValue);
+      if(next!==root.nodeValue)root.nodeValue=next;
+      return;
+    }
+    if(root.nodeType!==Node.ELEMENT_NODE)return;
+    if(root.matches('script,style,textarea,code,pre'))return;
+
+    localizeElement(root);
+    for(const child of Array.from(root.childNodes)){
+      localizeTree(child);
+    }
+  }
+
+  localizeTree(document.body);
+  const observer=new MutationObserver(records=>{
+    for(const record of records){
+      if(record.type==='characterData'){
+        localizeTree(record.target);
+      }else if(record.type==='childList'){
+        for(const node of record.addedNodes)localizeTree(node);
+      }else if(record.type==='attributes'){
+        localizeElement(record.target);
+      }
+    }
+  });
+  observer.observe(document.body,{
+    subtree:true,
+    childList:true,
+    characterData:true,
+    attributes:true,
+    attributeFilter:['title','aria-label','placeholder']
+  });
+
+  const englishStyle=document.createElement('style');
+  englishStyle.textContent=`
+    body{
+      font-family:Inter,"Segoe UI",Arial,sans-serif;
+    }
+    #hud h1{letter-spacing:.035em}
+    #help{max-width:620px;line-height:1.8}
+    #tip{line-height:1.6}
+    #toast{width:max-content;max-width:min(660px,86vw)}
+    #developerPanel h2{letter-spacing:0}
+    #dramaLine{
+      font-size:clamp(16px,2.25vw,22px);
+      letter-spacing:.012em;line-height:1.8;
+    }
+    #endRoll p{
+      max-width:min(860px,91vw);
+      letter-spacing:.015em;
+      font-size:clamp(12px,2.35vw,16px);
+    }
+    #endRoll p:first-child{font-size:28px}
+    @media(max-width:600px){
+      #hud h1{font-size:18px}
+      #help{max-width:77vw;font-size:10px}
+      #nav button{font-size:10px;padding:10px}
+      #dramaDialogue{bottom:11vh}
+      #dramaHint{font-size:9px}
+    }
+  `;
+  document.head.appendChild(englishStyle);
+})();
+</script>
+
 <script type="module">
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -791,7 +1131,29 @@ const memo=`これは架空の開発メモです。部屋を作った「開発�
 
 追伸。この長文を印刷して引き出しにしまったのは誰なんだろう。そこは、あまり深く考えないでほしい。`;
 
-$('#paperText').textContent=memo;
+const englishMemo=`This is a fictional development memo, written by the imaginary developer of this room. Please enjoy these entirely unnecessary complaints.
+
+Let me be honest: writing the code for this room was a pain. At first I thought, “Put down a desk, hide a star, done.” So why did I end up having serious opinions about the direction of wood grain and the thickness of the boards inside a drawer? This is supposed to be a game about finding a star. Somehow, I became a person who thinks about timber.
+
+The books were no better. Surely a stack of boxes would look enough like books? Apparently not. Covers need thickness. Page edges need fine lines. Spines need lettering. Whoever decided to call these things “small props” owes me an explanation. They are large projects wearing small disguises. And then I made them movable. I do not remember agreeing to build a desk-tidying simulator. Actually, yes, I do.
+
+The lighting was worse. I used to believe that turning a light off meant setting its brightness to zero. A simpler age. But that felt lifeless. First the room needed to turn faintly warm, just for a moment, and then the light had to drain away like lingering heat. Color and brightness now have separate little schedules. Someone, please appreciate this. You may press the switch several times. Preferably not at the expense of your eyes.
+
+And curtains cannot merely wave. If every fold moves at the same speed, it looks less like a breeze and more like a group exercise class. The top barely moves. The hem lags behind. Several waves run at different speeds. I stared at the folds long enough to forget about the star. Could this just be a curtain-viewing game? No? Fine.
+
+Open a closet and there are clothes inside. Obvious, right? Unfortunately, nothing obvious exists in this room until somebody puts it there. The bent hook of a hanger. A collar. A pocket. A seam. Then each item has to come out and lie on the floor. I worked hard to make a tidy room, and then worked hard to let you make it untidy. There is probably a lesson in that. I would rather not learn it today.
+
+I also made the space under the bed. Usually you can ignore things nobody sees. But once crawling underneath becomes an option, “nobody sees it” is no longer a valid argument. Slats, supports, a little dust. Still, I like how a familiar room suddenly feels enormous from down there. If you imagined the quiet air close to the floor, then perhaps all those hidden bits were worth it.
+
+Then there is the pouch. “A brown pouch” is such an unfairly short description of an object. Leather grain, stitches, piping, a metal clasp. Being able to rotate it means there has to be a back. If you looked at the back, please imagine a small round of applause from the fictional developer. No actual applause system was implemented. I had to stop somewhere.
+
+Finally, acrylic. Not quite the chill of glass, and not something the word “plastic” explains very well on its own. Transparent thickness. Light caught along an edge. I did not want to rush that part. Maybe the whole room exists for that little bit of light.
+
+That is enough complaining. I am not going to print the star’s location on this sheet. But when something refuses to be found, try lowering your point of view. There are things you simply cannot see while looking only at the top of a desk.
+
+P.S. Who printed this entire memo and put it in a drawer? Please do not investigate that particular mystery.`;
+
+$('#paperText').textContent=englishMemo;
 
 function wrapText(ctx,text,maxWidth){
   const lines=[];
@@ -817,7 +1179,7 @@ const paperTexture=canvasTexture((c,s)=>{
   c.fillText('この部屋のコードについて',65,120);
   c.fillRect(65,145,s-130,1);
   c.font='15px sans-serif';
-  const lines=wrapText(c,memo,s-130);
+  const lines=wrapText(c,englishMemo,s-130);
   lines.slice(0,41).forEach((l,i)=>c.fillText(l,65,180+i*19));
   c.font='13px sans-serif';c.fillStyle='#737160';
   c.fillText('クリックして全文を読む / 01',65,s-40);
@@ -885,9 +1247,9 @@ function makeBook(title,subtitle,color,w,d,h,index){
   });
   return g;
 }
-makeBook('魔法のお城','MAGIC CASTLE','#405860',.44,.61,.064,0);
-makeBook('静かな部屋','LIVING / VOL. 08','#936957',.42,.58,.061,1);
-makeBook('余白の記録','A SMALL COLLECTION','#7c8065',.40,.55,.056,2);
+makeBook('The Magic Castle','A STORY TO KEEP','#405860',.44,.61,.064,0);
+makeBook('A Quiet Room','LIVING / VOL. 08','#936957',.42,.58,.061,1);
+makeBook('Notes in the Margins','A SMALL COLLECTION','#7c8065',.40,.55,.056,2);
 
 // スマートフォン。
 const phone=group(desk);
@@ -1850,7 +2212,7 @@ function dreamRandom(){
 // インストール済みの日本語フォントの字形を土台にしながら、
 // 一文字ずつ傾け、輪郭を何度もずらしてなぞって落書きにする。
 // 外部フォントは不要。
-const dreamWords=['そと','あめ','おもちゃやさん','まほう','もぐる','ぼくのゆめ'];
+const dreamWords=['OUTSIDE','RAIN','TOY SHOP','MAGIC','DIVE','MY DREAMS'];
 // 日本語の字形を、整ったフォントではなく手描きの筆順に近い線で構成。
 // 座標は一文字100×100。線ごとにずれ・太さ・角度を変えて描く。
 const scribbleGlyphs={
@@ -1946,8 +2308,75 @@ const scribbleGlyphs={
   ]
 };
 
+const englishScribbleGlyphs={
+  A:[
+    'M 8 91 L 43 9 L 80 89',
+    'M 22 60 L 65 56'
+  ],
+  C:[
+    'M 80 22 C 55 -2 7 10 10 56 C 10 94 58 106 82 79'
+  ],
+  D:[
+    'M 14 91 L 13 10',
+    'M 13 11 C 92 -1 99 88 16 91'
+  ],
+  E:[
+    'M 76 12 L 15 15 L 13 91 L 79 87',
+    'M 16 51 L 66 48'
+  ],
+  G:[
+    'M 80 23 C 55 -2 6 12 11 61 C 15 101 80 105 81 56 L 51 58'
+  ],
+  H:[
+    'M 15 11 L 12 92',
+    'M 78 10 L 79 91',
+    'M 14 52 L 80 48'
+  ],
+  I:[
+    'M 20 13 L 70 10',
+    'M 45 13 L 43 89',
+    'M 17 91 L 71 87'
+  ],
+  M:[
+    'M 9 91 L 13 10 L 47 61 L 77 9 L 84 91'
+  ],
+  N:[
+    'M 13 90 L 14 11 L 78 90 L 77 10'
+  ],
+  O:[
+    'M 48 11 C 3 7 1 86 40 93 C 92 104 103 15 48 11'
+  ],
+  P:[
+    'M 14 94 L 13 12',
+    'M 13 13 C 89 -4 102 62 16 55'
+  ],
+  R:[
+    'M 14 92 L 15 11',
+    'M 15 12 C 90 -4 97 58 17 53',
+    'M 43 53 L 82 93'
+  ],
+  S:[
+    'M 80 20 C 30 -7 -7 27 29 48 C 41 54 91 58 81 82 C 72 104 28 100 10 79'
+  ],
+  T:[
+    'M 5 15 L 89 10',
+    'M 47 14 L 45 93'
+  ],
+  U:[
+    'M 13 10 L 14 66 C 12 108 81 104 80 65 L 82 9'
+  ],
+  V:[
+    'M 7 10 L 43 94 L 83 9'
+  ],
+  Y:[
+    'M 9 10 L 44 53 L 82 8',
+    'M 44 53 L 43 92'
+  ]
+};
+
 function drawScribbleCharacter(ctx,character,fontSize){
-  const strokes=scribbleGlyphs[character];
+  if(character===' ')return;
+  const strokes=englishScribbleGlyphs[character.toUpperCase()];
   if(!strokes)return;
 
   ctx.save();
@@ -1958,36 +2387,40 @@ function drawScribbleCharacter(ctx,character,fontSize){
 
   for(const stroke of strokes){
     const path=new Path2D(stroke);
-    // 太い一筆に、細い描き直しを重ねる。
-    for(let pass=0;pass<5;pass++){
+    for(let pass=0;pass<6;pass++){
       ctx.save();
       ctx.translate(
-        (dreamRandom()-.5)*(pass===0?1.2:3.1),
-        (dreamRandom()-.5)*(pass===0?1.2:3.1)
+        (dreamRandom()-.5)*(pass===0?1.4:4.1),
+        (dreamRandom()-.5)*(pass===0?1.4:4.1)
       );
-      ctx.rotate((dreamRandom()-.5)*.025);
+      ctx.rotate((dreamRandom()-.5)*.035);
+      ctx.scale(
+        .99+dreamRandom()*.025,
+        .98+dreamRandom()*.035
+      );
       ctx.lineWidth=pass===0
-        ? 2.9+dreamRandom()*1.5
-        : .35+dreamRandom()*1.2;
+        ? 2.7+dreamRandom()*1.6
+        : .35+dreamRandom()*1.1;
       ctx.strokeStyle=pass===0
-        ? 'rgba(28,25,33,.83)'
-        : `rgba(33,28,37,${.18+dreamRandom()*.24})`;
+        ? 'rgba(28,25,33,.85)'
+        : `rgba(33,28,37,${.17+dreamRandom()*.23})`;
       ctx.stroke(path);
       ctx.restore();
     }
   }
+
   ctx.restore();
 }
 
 const graffitiTexture=canvasTexture((ctx,size)=>{
   ctx.clearRect(0,0,size,size);
   const lines=[
-    {word:'そと',x:120,y:450,font:265,angle:-.075},
-    {word:'あめ',x:1110,y:380,font:185,angle:.12},
-    {word:'おもちゃやさん',x:90,y:925,font:245,angle:-.035},
-    {word:'まほう',x:160,y:1400,font:315,angle:.055},
-    {word:'もぐる',x:1160,y:1390,font:207,angle:-.12},
-    {word:'ぼくのゆめ',x:140,y:1840,font:290,angle:-.025}
+    {word:'OUTSIDE',x:95,y:450,font:185,angle:-.075},
+    {word:'RAIN',x:1330,y:390,font:140,angle:.12},
+    {word:'TOY SHOP',x:90,y:925,font:245,angle:-.035},
+    {word:'MAGIC',x:105,y:1390,font:220,angle:.055},
+    {word:'DIVE',x:1250,y:1400,font:175,angle:-.12},
+    {word:'MY DREAMS',x:115,y:1850,font:220,angle:-.025}
   ];
   for(const line of lines){
     ctx.save();
@@ -2086,7 +2519,7 @@ for(let variant=0;variant<3;variant++){
     ctx.fillRect(0,0,size,size);
     ctx.fillStyle='#343339';
     ctx.font='16px "Yu Gothic",sans-serif';
-    const printed='そと あめ おもちゃやさん まほう もぐる ぼくのゆめ';
+    const printed='outside rain toy shop magic dive my dreams ';
     const lines=wrapText(ctx,printed.repeat(30),size-62);
     lines.slice(0,21).forEach((line,i)=>{
       ctx.fillText(line,31,36+i*22);
@@ -3249,61 +3682,61 @@ actionable(exitLeaf,'玄関のドアを開ける',()=>{
 });
 
 const endingLines=[
-  '夕暮れの部屋',
+  'An Evening Room',
   '— ACRYLIC STAR —',
   '',
-  '開発者の、最後のメモ',
+  'One Last Note from the Developer',
   '',
-  'やった。',
-  'やっと、開発が完成した。',
-  'この一行を書くために、何枚の板を置いたんだろう。',
+  'We did it.',
+  'The game is finally finished.',
+  'How many wooden boards did it take to earn that sentence?',
   '',
-  '最初は、部屋をひとつ作る話だった。',
-  '机があって、本があって、星がひとつ。',
-  'ずいぶん穏やかな予定表だった。',
+  'At first, the plan was to make one room.',
+  'A desk, some books, and a little star.',
+  'Such a peaceful-looking to-do list.',
   '',
-  'そのうち、カーテンが風を要求しはじめた。',
-  'スイッチは、消える瞬間の余韻を要求した。',
-  '掛け布団は、左右の角から順番に抗議してきた。',
-  '布団の角に、こんなに謝ったのは初めてだ。',
+  'Then the curtains started asking for wind.',
+  'The light switch wanted a graceful exit.',
+  'The blanket filed complaints about both of its corners.',
+  'I have never apologized to bedding so many times.',
   '',
-  'やっと部屋ができたと思ったら、ドアが開いた。',
-  'ドアの向こうには、仕事が増える廊下があった。',
-  '曲がっても、曲がっても、まだ作業があった。',
-  'なるほど。これは開発のループだったのか。',
+  'Just when the room was finished, the door opened.',
+  'Beyond it was a hallway full of additional work.',
+  'Another corner. Another task.',
+  'So that was the real development loop.',
   '',
-  '雨まで降った。',
-  '室内なのに。',
-  '屋根を作った意味について、少し考えた。',
+  'Then it started raining.',
+  'Indoors.',
+  'I briefly reconsidered the purpose of the ceiling.',
   '',
-  '椅子は浮いた。',
-  '床も壁も黄色くなった。',
-  '最後には、家具が天井から生えた。',
-  '家具屋さんにも、建築士さんにも見せにくい部屋だ。',
+  'The chair floated.',
+  'The walls and floor turned yellow.',
+  'Eventually, furniture started growing out of the ceiling.',
+  'Please do not show this room to an architect.',
   '',
-  'あの落書きは、きれいに書かないように書いた。',
-  '丁寧に、雑に。',
-  'この矛盾だけで、もう一部屋できそうだった。',
+  'The scribbles had to be carefully careless.',
+  'Meticulously untidy.',
+  'That contradiction could probably furnish another room.',
   '',
-  'でも、透明な板に星が重なった瞬間。',
-  'ああ、このための部屋だったのかと思った。',
-  '木目も、布の影も、水の波紋も。',
-  '遠回りが、小さな形に収まった。',
+  'But then the star fitted into the transparent circle.',
+  'And suddenly, the room made sense.',
+  'The wood grain. The folds of cloth. The ripples.',
+  'All those detours, gathered into one small shape.',
   '',
-  '最後まで歩いてくれて、ありがとう。',
-  'ポーチの裏を見てくれた人にも、ありがとう。',
-  'スイッチを何度も押した人にも、ありがとう。',
-  '散らかした服は……まあ、今日はそのままでいい。',
+  'Thank you for walking all the way to the end.',
+  'Thank you if you looked at the back of the pouch.',
+  'Thank you if you kept pressing the light switch.',
+  'As for the clothes on the floor... leave them. Just for today.',
   '',
-  'さあ、外へ。',
-  'こちらはようやく、コードの戸締まりをします。',
+  'Go on. Outside is waiting.',
+  'I can finally lock up the code.',
   '',
-  '……追加の部屋？',
-  '今日は、いったん完成ということで。',
+  '...Another room?',
+  'Let us call this finished for tonight.',
   '',
   'THANK YOU FOR PLAYING',
   '',
-  'おしまい'
+  'The End'
 ];
 
 const creditsList=$('#endRoll');
@@ -3329,83 +3762,83 @@ let tapeGlitchAge=0;
 let tapeGlitchDuration=0;
 
 const dramaLines=[
-  ['子ども','ねえねえ、お母さん。'],
-  ['母','……どうしたの。まだ起きてたの。'],
-  ['子ども','あの部屋、なくなっちゃう？'],
-  ['母','明日になったら、鍵を返すからね。'],
-  ['子ども','じゃあ、中にいるぼくは、どうなるの。'],
-  ['母','中にいる？'],
-  ['子ども','小さいときのぼく。\n帰り道、わからなくならない？'],
-  ['母','……こっちへおいで。'],
-  ['子ども','寝ると、廊下が長くなるんだ。\n曲がっても、まだ家の中なの。'],
-  ['母','このところ、箱ばかりで歩きにくかったものね。'],
-  ['子ども','一つだけ、入りたくない部屋がある。'],
-  ['母','どんな部屋？'],
-  ['子ども','まっしろ。上にも横にも家具があって。\nぼくの字なのに、ぼくが書いた気がしない。'],
-  ['母','……壁に貼っていた紙、覚えてる？'],
-  ['子ども','お母さんが、はがしたやつ？'],
-  ['母','うん。壁に直接書いちゃったところもあったけど。'],
-  ['子ども','怒った？'],
-  ['母','少しね。\nでも、捨てられなくて、写真を撮ってある。'],
-  ['子ども','何を書いたっけ。'],
-  ['母','行きたいところとか、やってみたいこと。\n字を覚えたばかりで、毎日増えていったの。'],
-  ['子ども','おもちゃ屋さん。'],
-  ['母','そう。それは、ずいぶん大きな字だった。'],
-  ['子ども','あのお城、まだ売ってるかな。'],
-  ['母','どうかな。\nでも、本の続きを読むことなら、今夜でもできる。'],
-  ['子ども','椅子が飛んでいくところ。'],
-  ['母','あなた、そこでいつも笑ってたね。\n座ったまま学校に行けたらいいのにって。'],
-  ['子ども','……雨の日は、本当にそう思う。'],
-  ['母','お母さんも。荷物も一緒に飛んでくれたら、もっといい。'],
-  ['子ども','夢では、部屋の中まで雨だったよ。'],
-  ['母','あの雨漏りの夜、怖かった？'],
-  ['子ども','最初だけ。\n洗面器の音が、だんだん変な歌みたいになった。'],
-  ['母','二人で布団を動かしたね。'],
-  ['子ども','黄色いところに。'],
-  ['母','台所の灯りね。あそこだけ、やけに明るくて。'],
-  ['子ども','朝じゃないのに、朝みたいだった。'],
-  ['母','あのときも、ちゃんと眠れたでしょう。'],
-  ['子ども','うん。'],
-  ['子ども','でも、覚えてるものがバラバラになると、\nちょっと怖い。'],
-  ['母','引っ越しの箱と同じかもしれないね。\n開けるまでは、何が入ってるかわからない。'],
-  ['子ども','変な部屋も、ぼくのもの？'],
-  ['母','怖かったことも、楽しかったことも。\nでも、全部を一人で片づけなくていいよ。'],
-  ['子ども','……これ、見つけた。'],
-  ['母','あ、その丸いの。ずっと探してたのよ。'],
-  ['子ども','真ん中、抜けてる。'],
-  ['母','お星さまは、小さいポーチに入れたはず。\nなくさないようにって、分けたのにね。'],
-  ['子ども','分けると、なくなるよ。'],
-  ['母','本当。そのとおり。'],
-  ['子ども','ほら。ぴったり。'],
-  ['母','窓に下げていたときみたい。'],
-  ['子ども','新しい家にも、窓ある？'],
-  ['母','あるよ。朝、光が入る窓。'],
-  ['子ども','じゃあ、そこがいい。'],
-  ['母','そうしよう。'],
-  ['子ども','玄関の「そと」も、持っていく？'],
-  ['母','あの札？\nあなたが一人で靴を履けた日に、貼ったんだったね。'],
-  ['子ども','こっちから出られます、って。'],
-  ['母','助かったわ。お母さん、迷うところだった。'],
-  ['子ども','うそだ。'],
-  ['母','ふふ。札も持っていこう。\n新しい家の扉にも、貼ってくれる？'],
-  ['子ども','うん。'],
-  ['子ども','……小さいぼくも、来るかな。'],
-  ['母','もう来てると思うよ。\nあなたが、こんなに覚えていてくれたから。'],
-  ['子ども','そっか。'],
-  ['母','さあ。明日は少し早いよ。'],
-  ['子ども','最後に、部屋におやすみって言ってくる。'],
-  ['母','うん。お母さん、ここで待ってる。'],
-  ['子ども','おやすみ。\n……またね。'],
-  ['','—— 翌朝。'],
-  ['母','忘れ物、ない？'],
-  ['子ども','ない。星も、札も、持った。'],
-  ['母','それじゃあ、行こうか。'],
-  ['子ども','ねえ。帰りに、あのお店の前、通れる？'],
-  ['母','おもちゃ屋さん？'],
-  ['子ども','見るだけ。'],
-  ['母','……見るだけならね。'],
-  ['子ども','やった。'],
-  ['','扉の閉まる音。\nその向こうで、二人の笑い声がした。']
+  ['Child','Mom? Hey, Mom.'],
+  ['Mom','...What is it, sweetheart?\nI thought you were asleep.'],
+  ['Child','Is that room going away?'],
+  ['Mom','We have to give the keys back tomorrow.'],
+  ['Child','Then what happens to the me inside it?'],
+  ['Mom','The you inside it?'],
+  ['Child','Me when I was little.\nWhat if he cannot find his way home?'],
+  ['Mom','...Come here.'],
+  ['Child','When I dream, the hallway gets longer.\nI keep turning corners, but I am still inside.'],
+  ['Mom','There have been so many boxes lately.\nIt has been hard to get anywhere.'],
+  ['Child','There is one room I do not want to go into.'],
+  ['Mom','What is it like?'],
+  ['Child','All white. Furniture on the walls and overhead.\nAnd my writing, but it does not feel like I wrote it.'],
+  ['Mom','...Do you remember the papers we put on your wall?'],
+  ['Child','The ones you took down?'],
+  ['Mom','Yes. Though some of the writing missed the paper entirely.'],
+  ['Child','Were you mad?'],
+  ['Mom','A little.\nBut I could not throw it all away. I took pictures.'],
+  ['Child','What did I write?'],
+  ['Mom','Places you wanted to go. Things you wanted to try.\nYou had just learned to write. There was more every day.'],
+  ['Child','The toy shop.'],
+  ['Mom','Yes. You wrote that one very big.'],
+  ['Child','Do you think they still have that castle?'],
+  ['Mom','I am not sure.\nBut we can read more of your castle book tonight.'],
+  ['Child','The part where the chair flies away.'],
+  ['Mom','That always made you laugh.\nYou wanted to go to school without getting out of your seat.'],
+  ['Child','...I still do when it rains.'],
+  ['Mom','So do I. Especially if the shopping bags could fly along too.'],
+  ['Child','In my dream, it was raining inside the room.'],
+  ['Mom','Were you frightened that night the roof leaked?'],
+  ['Child','Only at first.\nThen the water in the bowls started sounding like a funny song.'],
+  ['Mom','We moved your bedding together, remember?'],
+  ['Child','Into the yellow place.'],
+  ['Mom','Under the kitchen light.\nIt was so bright compared with everywhere else.'],
+  ['Child','It felt like morning, even though it was not.'],
+  ['Mom','And you managed to fall asleep there, did you not?'],
+  ['Child','Yeah.'],
+  ['Child','But when the things I remember get mixed up,\nit is a little scary.'],
+  ['Mom','Maybe memories are like our moving boxes.\nYou cannot tell what is inside until you open them.'],
+  ['Child','Are the strange rooms mine too?'],
+  ['Mom','The frightening things and the happy things.\nBut you do not have to sort through them all by yourself.'],
+  ['Child','...I found this.'],
+  ['Mom','Oh, the round piece! I have been looking for that.'],
+  ['Child','There is a hole in the middle.'],
+  ['Mom','The star should be in the little pouch.\nI put them apart so they would not get lost.'],
+  ['Child','That is how you lose them.'],
+  ['Mom','You know what? You are quite right.'],
+  ['Child','Look. It fits.'],
+  ['Mom','Just like when it used to hang in the window.'],
+  ['Child','Does the new house have a window?'],
+  ['Mom','It does. One that catches the morning light.'],
+  ['Child','Then I want it there.'],
+  ['Mom','That sounds perfect.'],
+  ['Child','Are we taking the OUTSIDE sign on the door too?'],
+  ['Mom','That little sign?\nYou put it up the day you learned to put your shoes on by yourself.'],
+  ['Child','So everyone would know the way out.'],
+  ['Mom','Very helpful. I might have got lost otherwise.'],
+  ['Child','No, you would not.'],
+  ['Mom','Well, let us take it anyway.\nWill you put it on the new door for me?'],
+  ['Child','Okay.'],
+  ['Child','...Do you think little me will come too?'],
+  ['Mom','I think he is already here.\nYou have remembered so much of him.'],
+  ['Child','Oh.'],
+  ['Mom','Come on. We have an early start tomorrow.'],
+  ['Child','I want to say goodnight to the room first.'],
+  ['Mom','All right. I will wait here.'],
+  ['Child','Goodnight.\n...See you.'],
+  ['','— The next morning.'],
+  ['Mom','Have we forgotten anything?'],
+  ['Child','No. I have the star and the sign.'],
+  ['Mom','Then shall we go?'],
+  ['Child','Hey. Could we go past that shop later?'],
+  ['Mom','The toy shop?'],
+  ['Child','Just to look.'],
+  ['Mom','...If it is just to look.'],
+  ['Child','Yes!'],
+  ['','The door closed.\nFrom the other side came the sound of them laughing.']
 ];
 
 const tapeCanvas=$('#tapeNoise');
@@ -3570,7 +4003,8 @@ function updateEpilogue(dt){
   if(dialogueAge>.12)$('#dramaDialogue').style.opacity='1';
 
   const text=dramaLines[dialogueIndex][1];
-  const duration=clamp(2.3+text.length*.10,4.0,8.7);
+  const wordCount=text.trim().split(/\s+/).filter(Boolean).length;
+  const duration=clamp(2.1+wordCount*.31,3.5,12.5);
   if(dialogueAge>duration)advanceDrama();
 }
 
