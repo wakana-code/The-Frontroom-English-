@@ -1,5 +1,5 @@
 # The-Frontroom
-[Play here](https://wakana-code.github.io/the-frontroom/)
+[Play here](https://wakana-code.github.io/the-frontroom-English-/)
 
 # An Evening Room — Acrylic Star
 
@@ -9,7 +9,7 @@ A familiar scene in what could be anyone’s room.
 
 But what felt ordinary a moment ago may not stay that way.
 
-<img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/4ae06f42-65e4-4b69-afa8-d882f8152c10" />
+<img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/4916d2c6-afdc-43ac-b5b2-df07fa07345a" />
 
 ## How to Play
 
@@ -90,7 +90,7 @@ As you read, take a moment to look around the room on screen, too.
 
 ## Getting Started
 
-1. [Play here](https://wakana-code.github.io/the-frontroom/)
+1. [Play here](https://wakana-code.github.io/the-frontroom-English-/)
 2. Open the link in your browser while connected to the internet.
 
 An internet connection is required at startup because external libraries, including Three.js, are loaded from a CDN.
